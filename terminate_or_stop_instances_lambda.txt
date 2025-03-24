@@ -1,0 +1,23 @@
+Explanation:
+1.	Input Argument: The function expects an action key in the event payload with a value of either terminate or stop.
+2.	Describe Instances: Filters for instances in the running state.
+3.	Action Handling:    
+    a - If terminate is passed, the function calls terminate_instances.
+    b - If stop is passed, the function calls stop_instances.
+4.	Validation: If no valid action is provided, the function returns a 400 error.
+
+Example Event Payload:
+To terminate instances:
+    {
+    "action": "terminate"
+    }
+
+To stop instances:
+    {
+    "action": "stop"
+    }
+Deployment:
+1.	Save the code in a file (e.g., terminate_or_stop_instances_lambda.py).
+2.	Create an AWS Lambda function in the AWS Management Console.
+3.	Attach the AmazonEC2FullAccess policy to the Lambda execution role.
+4.	Deploy the function and test it with the appropriate event payload.
